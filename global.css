@@ -26,3 +26,126 @@
   }
 } 
 
+/* Matrix theme styles */
+@layer base {
+  .matrix-theme {
+    background: #000 !important;
+    color: #00ff4c;
+    font-family: 'Courier New', ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Noto Mono", monospace;
+  }
+
+  .matrix-text {
+    color: #00ff4c;
+  }
+
+  .matrix-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.85;
+    background: transparent;
+  }
+
+  /* when canvas is fading out we hide it gracefully */
+  .matrix-hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+  }
+
+  /* Reveal animation for page elements to sync with the Matrix canvas */
+  @keyframes matrix-reveal {
+    0% {
+      opacity: 0;
+      transform: translateY(8px) scale(0.995);
+      filter: blur(2px);
+      text-shadow: 0 0 0 #00ff4c;
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.01);
+      filter: blur(0.4px);
+      text-shadow: 0 0 8px rgba(0,255,76,0.12), 0 0 2px rgba(0,255,76,0.08);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      text-shadow: 0 0 12px rgba(0,255,76,0.16);
+    }
+  }
+
+  .matrix-content > * {
+    opacity: 0;
+    transform: translateY(8px);
+    animation-name: matrix-reveal;
+    animation-duration: 650ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.2,.9,.2,1);
+    animation-delay: calc(var(--i, 1) * 0.12s);
+  }
+
+  /* helper class used when wrapping single items */
+  .matrix-item {
+    opacity: 0;
+    transform: translateY(8px);
+    animation-name: matrix-reveal;
+    animation-duration: 650ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.2,.9,.2,1);
+    animation-delay: calc(var(--i, 1) * 0.12s);
+  }
+
+  /* FORCE green matrix theme across the page (text, SVGs, borders, form elements) */
+  .matrix-theme {
+    --matrix-green: #00ff4c;
+    color: var(--matrix-green) !important;
+    caret-color: var(--matrix-green) !important;
+  }
+
+  /* apply to all descendants - forces text color on elements that use utility classes */
+  .matrix-theme :where(*) {
+    color: var(--matrix-green) !important;
+  }
+
+  /* SVGs and icons */
+  .matrix-theme svg, .matrix-theme svg * {
+    fill: var(--matrix-green) !important;
+    stroke: var(--matrix-green) !important;
+  }
+
+  /* Borders and outlines */
+  .matrix-theme :where(*[class*="border"], *[style*="border"]) {
+    border-color: rgba(0,255,76,0.14) !important;
+  }
+
+  /* Backgrounds: leave them, but offer a faint green tint for elements that set backgrounds */
+  .matrix-theme :where(*[class*="bg-"], *[style*="background"]) {
+    /* do not force background-color globally to avoid breaking contrasts; add subtle glow instead */
+    box-shadow: 0 0 10px rgba(0,255,76,0.04) inset, 0 0 6px rgba(0,255,76,0.02);
+  }
+
+  /* Form elements */
+  .matrix-theme input,
+  .matrix-theme textarea,
+  .matrix-theme select,
+  .matrix-theme button {
+    color: var(--matrix-green) !important;
+    caret-color: var(--matrix-green) !important;
+    background-color: transparent !important;
+    border-color: rgba(0,255,76,0.12) !important;
+  }
+
+  .matrix-theme ::placeholder {
+    color: rgba(0,255,76,0.6) !important;
+  }
+
+  /* Ensure focus rings use the matrix color */
+  .matrix-theme :where(:focus) {
+    outline-color: rgba(0,255,76,0.6) !important;
+    box-shadow: 0 0 8px rgba(0,255,76,0.12) !important;
+  }
+}
+

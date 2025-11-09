@@ -24,11 +24,18 @@ export const metadata = {
 		},
 	},
 	icons: [
+		// use a simple, modern SVG from the public folder as the favicon
 		{
-			url: "/favicon.ico",
+			url: "/astro-icon-light-gradient.svg",
 			rel: "icon",
 			sizes: "any",
 			type: "image/svg+xml",
+		},
+		{
+			url: "/favicon.ico",
+			rel: "alternate icon",
+			sizes: "32x32",
+			type: "image/x-icon",
 		},
 	]
 };
@@ -43,7 +50,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={calSans.variable}>
 			<body
-				className={`bg-black ${
+				className={`matrix-theme bg-black ${
 					process.env.NODE_ENV === "development" ? "debug-screens" : ''
 				}`}
 			>

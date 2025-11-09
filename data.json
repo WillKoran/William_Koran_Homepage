@@ -1,11 +1,148 @@
 {
 	"description": "My hobby projects, most of them are Next.js apps deployed to Vercel.",
 	"githubUsername": "octocat",
-	"avatarUrl": "",
-	"displayName": "",
+	"avatarUrl": "/headshot.jpg",
+	"displayName": "William Koran",
+	"intro": "I’m a senior majoring in Computer Science and Engineering specializing in Artificial Intelligence with a Mathematics minor (GPA 3.73). Experienced in deep learning, computer vision, and full-stack development through research, academic, and personal projects. I’m passionate about exploring how intelligent systems learn and adapt. I’m currently seeking entry-level opportunities for after I graduate this May.",
 	"email": "",
+	"contacts": {
+		"github": "https://github.com/WillKoran",
+		"linkedin": "https://www.linkedin.com/in/williamkoran",
+		"email": "willkoran26@outlook.com"
+	},
 	"projects": {
 		"blacklist": [],
 		"heroNames": []
 	}
+    ,
+	"skills": [
+		{ "name": "JavaScript", "level": 90 },
+		{ "name": "React", "level": 88 },
+		{ "name": "Next.js", "level": 85 },
+		{ "name": "Node.js", "level": 80 },
+		{ "name": "TypeScript", "level": 70 },
+		{ "name": "Tailwind CSS", "level": 85 }
+	],
+	"languages": [
+		{ "name": "MATLAB", "years": 2 },
+		{ "name": "Java", "years": 3 },
+		{ "name": "C", "years": 3 },
+		{ "name": "Python", "years": 2 },
+		{ "name": "C#", "years": 1 },
+		{ "name": "SQL", "years": 1.5 },
+		{ "name": "TypeScript", "years": 1 }
+	],
+	"frameworks": [
+		{ "name": "React", "years": 2 },
+		{ "name": "Node.js", "years": 2 },
+		{ "name": "Next.js", "years": 2 },
+		{ "name": "PyTorch", "years": 1.5 },
+		{ "name": "TensorFlow", "years": 1.5 },
+		{ "name": "Linux", "years": 4 },
+		{ "name": "Tailwind CSS", "years": 2 }
+	],
+	"interpersonal": [
+		{ "name": "Communication" },
+		{ "name": "Teamwork" },
+		{ "name": "Problem Solving" },
+		{ "name": "Leadership" }
+	],
+	"experience": [
+		{
+			"company": "Personal Projects",
+			"role": "Full Stack Developer",
+			"start": "2020",
+			"end": "Present",
+			"description": "Building and deploying web apps using Next.js, Vercel, and serverless APIs. Focus on performance and UX."
+		},
+		{
+			"company": "Acme Co.",
+			"role": "Frontend Engineer",
+			"start": "2018",
+			"end": "2020",
+			"description": "Worked on the web platform, components library and design-system integrations.",
+			"summary": "Component-driven development and accessibility improvements."
+		}
+	]
+	,
+	"research": [
+		{
+			"title": "BASKET120: A High-Fidelity Video Benchmark for Motion-Driven and Explainable Person Re-Identification",
+			"institution": "Ohio State University — Imageomics Institute",
+			"role": "Student Research Assistant",
+			"start": "Sept. 2025",
+			"end": "Present",
+			"description": "Introduced BASKET120, a dataset of 120 basketball player identities (≈40 videos per identity, ~5,000 clips) with paired appearance and motion samples and silhouette annotations to emphasize motion cues. Demonstrated that motion-based models adapted from video action recognition can discriminate identity and provided explainable analyses of key motion characteristics.",
+			"contributions": [
+				"Collected and organized high-fidelity motion video data for the BASKET120 dataset.",
+				"Performed segmentation labeling and validation to isolate motion cues from appearance features.",
+				"Supported data preprocessing and dataset quality assurance within the Imageomics Institute research workflow."
+			]
+		},
+		{
+			"title": "Machine Learning for Code Synthesis",
+			"role": "Independent Research",
+			"start": "2022",
+			"end": "2023",
+			"description": "Explored transformer models for code generation, fine-tuning strategies, and evaluation metrics for code quality and security."
+		},
+		{
+			"title": "Human-Computer Interaction Study",
+			"role": "Research Assistant",
+			"start": "2019",
+			"end": "2020",
+			"description": "Studied developer workflows and tooling adoption, focusing on productivity and accessibility improvements."
+		}
+	],
+	"portfolioProjects": [
+		{
+			"name": "Portfolio Website",
+			"description": "This very site — a Next.js portfolio showcasing projects, deployed to Vercel with a focus on performance and UX.",
+			"link": "/projects"
+		},
+		{
+			"name": "MRI Image Segmentation",
+			"description": "Implemented U-Net in PyTorch to segment tumors on MRI brain scans.",
+			"link": "https://github.com/WillKoran/MRI-image-segmentation",
+			"images": ["/MRI%20picture.png", "/MRI2.png"],
+			"highlights": [
+				"Implemented U-Net in PyTorch to segment tumors on MRI brain scans.",
+				"Experimented with multiple architectures and training strategies; finalized model achieved a dice score of 0.87.",
+				"Strengthened knowledge of computer vision best practices and medical imaging applications."
+			]
+		},
+		{
+			"name": "YouTube-Clone-FullStack",
+			"description": "Full-stack YouTube clone (Next.js client + services) with video upload, processing, and streaming components.",
+			"link": "https://github.com/WillKoran/YouTube-Clone-FullStack",
+			"image": "https://raw.githubusercontent.com/WillKoran/YouTube-Clone-FullStack/main/YT-Img1.png",
+			"highlights": [
+				"Next.js web client with Firebase authentication",
+				"Video processing service that transcodes uploaded videos (example: 360p conversion)",
+				"Uses Google Cloud Storage, Cloud Pub/Sub and Firebase functions for scalable upload/processing pipeline"
+			]
+		},
+		{
+			"name": "Algorithmic Trading with Python",
+			"description": "Collection of Jupyter Notebook projects demonstrating algorithmic trading strategies using IEX Cloud and Python.",
+			"link": "https://github.com/WillKoran/Algorithmic-Trading-with-Python",
+			"image": "https://raw.githubusercontent.com/WillKoran/Algorithmic-Trading-with-Python/main/equalweightS%26P.png",
+			"highlights": [
+				"Three strategy templates: Equal-Weight S&P500, Quantitative Momentum, Quantitative Value",
+				"Implemented data retrieval and strategy logic in Jupyter Notebooks; outputs include visualization and XML exports",
+				"Based on industry tutorials and adapted for robustness and analysis"
+			]
+		},
+		{
+			"name": "Retro Zelda Game (Remake)",
+			"description": "A retro-style Zelda-like 2D game remake. Includes collectibles, gates, and a gameplay timer. Gameplay sample embedded below.",
+			"link": "https://github.com/CSE3902-SU2024/Sprint_2",
+			"video": "/Zelda_Gameplay.mp4",
+			"highlights": [
+				"2D animated character with sound effects and background music",
+				"Gameplay mechanics: collect 3 keys, open gates, reach treasure",
+				"Game clock for timing runs; designed for replayability and speed runs"
+			]
+		}
+	]
 }
