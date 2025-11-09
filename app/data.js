@@ -237,9 +237,23 @@ export const getRepositoryPackageJson = unstable_cache(async (username, reponame
             }`
         }),
     });
+    // If the GitHub API returned a non-OK status, bail out early.
+    if (!res.ok) {
+        console.error('GitHub graphql returned an error for package.json', res.status, res.statusText);
+        return null;
+    }
+
     const response = await res.json();
+
+    // Defensive checks for expected response shape before attempting to parse.
+    const packageText = response?.data?.repository?.object?.text;
+    if (!packageText) {
+        console.error('Unexpected package.json response shape', response);
+        return null;
+    }
+
     try {
-        const packageJson = JSON.parse(response.data.repository.object.text);
+        const packageJson = JSON.parse(packageText);
         return packageJson;
     } catch (error) {
         console.error('Error parsing package.json', username, reponame, error);

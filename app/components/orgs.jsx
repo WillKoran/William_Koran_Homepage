@@ -6,7 +6,8 @@ import MatrixText from "./matrix-text";
 
 export const ProfileOrganizations = async ({ username }) => {
 
-	const organizations = (await getUserOrganizations(username)).data.user?.organizations.nodes;
+	const orgsResponse = await getUserOrganizations(username);
+	const organizations = orgsResponse?.data?.user?.organizations?.nodes ?? [];
 
 	return (
 		<div>
