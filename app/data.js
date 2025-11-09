@@ -59,7 +59,13 @@ export const getPinnedRepos = unstable_cache(async (username) => {
         return [];
     }
     const pinned = await res.json();
-    const names = pinned.data.user.pinnedItems.nodes.map((node) => node.name);
+    // defensive: guard against unexpected response shapes from the GraphQL API
+    const nodes = pinned?.data?.user?.pinnedItems?.nodes;
+    if (!Array.isArray(nodes)) {
+        console.error('Unexpected pinned repos response shape', pinned);
+        return [];
+    }
+    const names = nodes.map((node) => node.name);
     return names;
 }, ['getPinnedRepos'], { revalidate: HOURS_12 });
 
@@ -131,10 +137,16 @@ export const getNextjsLatestRelease = unstable_cache(async () => {
     }
     const nextjsLatest = await res.json();
 
+    // defensive: ensure the expected data exists before accessing nested props
+    if (!nextjsLatest?.data?.repository?.latestRelease) {
+        console.error('Unexpected next.js release response shape', nextjsLatest);
+        return {};
+    }
+
     const result = {
         tagName: cleanVersionTag(nextjsLatest.data.repository.latestRelease.tagName),
         updatedAt: nextjsLatest.data.repository.latestRelease.updatedAt,
-    }
+    };
     return result;
 }, ['getNextjsLatestRelease'], { revalidate: HOURS_1 });
 
