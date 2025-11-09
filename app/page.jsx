@@ -20,8 +20,10 @@ export default async function Home(props) {
 
 const UserIcon = async ({ promise }) => {
 	const user = await promise;
+	// Prefer the local headshot in `data.avatarUrl` (from public/) over the GitHub avatar.
+	const src = data.avatarUrl || user?.avatar_url;
 	return (
-		<Image alt="👨‍💻" width={100} height={100} src={user.avatar_url || data.avatarUrl} className="float-right rounded-full mx-4" />
+		<Image alt="👨‍💻" width={100} height={100} src={src} className="float-right rounded-full mx-4" />
 	);
 };
 
