@@ -8,8 +8,9 @@ const displayName = data.displayName || username;
 /** @type {import('next').Metadata} */
 export const metadata = {
 	title: {
-		default: [username, '\'s portfolio'].join(""),
-		template: "%s | " + data.displayName + "'s portfolio",
+		// Use a static, user-friendly site title
+		default: "William Koran's Homepage",
+		template: "%s | William Koran's Homepage",
 	},
 	description: 'GitHub portfolio for ' + displayName,
 	robots: {
